@@ -1,0 +1,45 @@
+<h1>Hotels Listing</h1>
+<img src="../../../../Images/qantas-logo.png" />
+<h2>{{hotelCount}} hotels in {{hotelLocation}}</h2>
+
+
+<p-dataView #dv [value]="hotels" [paginator]="false" [rows]="20" paginatorPosition="both" filterBy="price"
+            [sortField]="sortField" [sortOrder]="sortOrder">
+  <p-header>
+    <div class="ui-helper-clearfix">
+      <div class="ui-g">
+        <div class="ui-g-12 ui-md-4">
+          <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By" (onChange)="onSortChange($event)" [autoWidth]="false" [style]="{'width':'250px'}"></p-dropdown>
+        </div>
+      </div>
+    </div>
+  </p-header>
+  <ng-template let-hotel pTemplate="listItem">
+    <div class="ui-g" style="padding: 2em;border-bottom: 1px solid #d9d9d9">
+      <div class="ui-g-12 ui-md-3" style="text-align:left">
+        <img src="{{hotel.image}}">
+      </div>
+      <div class="ui-g-12 ui-md-8">
+        <div class="ui-g">
+          <div class="ui-g-12 ui-sm-6"><b>{{hotel.title}}</b></div>
+
+          <div class="ui-g-12 ui-sm-6">
+            <app-rating *ngIf="hotel.ratingType == 'star'" [star]='true' [rating]='hotel.roundedRating' [itemId]='hotel.id' (ratingClick)='ratingComponentClick($event)'></app-rating>
+            <app-rating *ngIf="hotel.ratingType == 'self'" [star]='false' [rating]='hotel.roundedRating' [itemId]='hotel.id' (ratingClick)='ratingComponentClick($event)'></app-rating>
+          </div>
+
+          <div class="ui-g-12 ui-sm-6"><b>{{hotel.address}}</b></div>
+
+          <div class="ui-g-12 ui-sm-6"><b *ngIf="hotel.roomName">{{hotel.roomName}}</b><b *ngIf="!hotel.roomName">N/A</b></div>
+          <div class="ui-g-12 ui-sm-6"><a *ngIf="hotel.freeCancellation">Free cancellation</a></div>
+
+        </div>
+      </div>
+      <div class="ui-g-12 ui-md-1 search-icon">
+        <div><b>1 night total (AUD)</b></div>
+        <div><b>{{hotel.price}}</b></div>
+        <div><b>Save${{hotel.savings}}~</b></div>
+      </div>
+    </div>
+  </ng-template>
+</p-dataView>
