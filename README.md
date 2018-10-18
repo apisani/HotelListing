@@ -25,11 +25,10 @@
 Project should be ready to run upon pulling the solution from github, should all dependencies requirements are met.
 
 #### 1. Run the project
-The web app can either be started by pressing the **`Start`** button (F5) in Visual Studio *(VS 2017 was used for the development of this application)* or running the following promt command at the root of the solution:
-**`dotnet build`** then **`dotnet run`**
+The web app can either be started by pressing the **`Start`** button (F5) in Visual Studio *(VS 2017 was used for the development of this application)*
 
 #### 2. Debugging project
-**`dotnet run`** is running the **`ng serve`** Angular compiler in the background and this increases the compile time to compile the application.You can connect to it from the ASP.NET application. To speed up things, the Angular server can be run as a standalone process. To do that, navigate to ClientApp directory on command prompt and run **`ng serve`** command to start the Angular server.
+Running the app also runs the **`ng serve`** Angular compiler in the background and this increases the compile time to compile the application. To speed up things, the Angular server can be run as a standalone process. To do that, navigate to ClientApp directory on command prompt and run **`ng serve`** command to start the Angular server.
 
 Copy the development server URL from the command prompt, and replace the following line in **Startup.cs**:
 
@@ -39,5 +38,10 @@ with
 
 **```spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");```**
 
-#### Additional notes
+### Additional notes
 Due to some time constraint, I am not fully happy with the front-end testing with Jasmine, never dealt with this framework before, could not workout the service dependencies to test hotelComponent in a short time frame. Although I am really interested in figure it out and will come back to it. Interested to know which testing framework you are using.
+
+#### TODO:
+* Implement lazy loading
+* Fully implement Wep API
+* Fix and improve dependencies issues in Jasmine testing.
