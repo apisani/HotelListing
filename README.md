@@ -10,11 +10,16 @@
 * [Node.js & npm](https://nodejs.org/en/)
 * [Jasmine](https://www.npmjs.com/package/jasmine)
 * [Karma](http://karma-runner.github.io/3.0/intro/installation.html)
+* [Json.NET](https://www.newtonsoft.com/json)
+* [Bootstrap](https://www.npmjs.com/package/bootstrap)
 
 
 ### Unit Testing
-* Front-End: **Jasmine & Karma**
-* Back-End: **MSTest**
+* Front-End: **Jasmine & Karma** : Open prompt in root Angular project **`ClientApp`** & run **`ng test`**
+
+* Back-End: **MSTest** : In Visual Studio, go to **`Test > Run > All Tests`**
+
+
 
 ### Setup Project
 Project should be ready to run upon pulling the solution from github, should all dependencies requirements are met.
@@ -33,3 +38,6 @@ Copy the development server URL from the command prompt, and replace the followi
 with
 
 **```spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");```**
+
+#### Additional notes
+Due to some time constraint, I am not fully happy with the front-end testing with Jasmine, never dealt with this framework before, could not workout the service dependencies to test hotelComponent in a short time frame. Although I am really interested in figure it out and will come back to it. Interested to know which testing framework you are using.
