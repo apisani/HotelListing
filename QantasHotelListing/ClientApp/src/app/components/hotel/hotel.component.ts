@@ -11,18 +11,19 @@ import { SelectItem } from 'primeng/components/common/selectitem';
   styleUrls: ['./hotel.component.css']
 })
 export class HotelComponent implements OnInit {
-  public hotelCount: number;
-  public hotelLocation = 'Sydney';
-  public hotels: Hotel[] = [];
-  public sortOptions: SelectItem[];
-  public sortKey: string;
-  public sortField: string;
-  public sortOrder: number;
-  public ratingClicked: number;
-  public itemIdRatingClicked: string;
+  hotelCount: number;
+  hotelLocation = 'Sydney';
+  hotels: Hotel[] = [];
+  sortOptions: SelectItem[];
+  sortKey: string;
+  sortField: string;
+  sortOrder: number;
+  ratingClicked: number;
+  itemIdRatingClicked: string;
+  hotelLoaded = false;
 
 
-  constructor(private hotelService: HotelService, private toastyService: ToastyWrapperService) { }
+  constructor(private hotelService: HotelService, private toastyService: ToastyWrapperService) {}
 
   ngOnInit() {
     this.sortOptions = [
@@ -31,7 +32,6 @@ export class HotelComponent implements OnInit {
     ];
 
     this.getAllHotels();
-
   }
 
   getAllHotels() {
@@ -42,6 +42,7 @@ export class HotelComponent implements OnInit {
   }, error => {
       this.toastyService.error('There was an error uploading the hotel list');
   });
+  this.hotelLoaded = true;
  }
 
   onSortChange(event) {
