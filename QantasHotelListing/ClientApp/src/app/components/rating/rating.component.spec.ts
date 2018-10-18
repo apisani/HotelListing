@@ -16,10 +16,25 @@ describe('RatingComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(RatingComponent);
     component = fixture.componentInstance;
+    component.itemId = 'cxd650nuyo' ;
+    component.rating = 4 ;
+    component.star = true ;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('Should get correct id', () => {
+    expect(component.itemId).toEqual('cxd650nuyo');
+  });
+
+  it('Should get correct rating', () => {
+    expect(component.rating).toEqual(4);
+  });
+
+  it('Should get correct star', () => {
+    expect(component.star).toEqual(true);
   });
 });

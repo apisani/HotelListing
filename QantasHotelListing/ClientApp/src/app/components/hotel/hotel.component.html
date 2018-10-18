@@ -2,8 +2,8 @@
 <img src="../../../../Images/qantas-logo.png" />
 <h2>{{hotelCount}} hotels in {{hotelLocation}}</h2>
 
-
-<p-dataView #dv [value]="hotels" [paginator]="false" [rows]="20" paginatorPosition="both" filterBy="price"
+<h1  *ngIf='!hotels || hotels.length == 0'>No hotel available</h1>
+<p-dataView #dv *ngIf='hotels && hotels.length > 0' [value]="hotels" [paginator]="false" [rows]="20" paginatorPosition="both" filterBy="price"
             [sortField]="sortField" [sortOrder]="sortOrder">
   <p-header>
     <div class="ui-helper-clearfix">

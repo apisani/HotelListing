@@ -10,11 +10,13 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './components/home/home.component';
 import { RatingComponent } from './components/rating/rating.component';
 import { HotelComponent } from './components/hotel/hotel.component';
-import { HotelService } from './services/hotel.service';
+import { HotelService } from './services/hotel/hotel.service';
+import { ToastyWrapperService } from './services/toastywrapper/toasty-wrapper.service';
 
 // 3rd Party
 import { DataViewModule } from 'primeng/dataview';
 import { DropdownModule } from 'primeng/primeng';
+import { ToastyModule } from 'ng2-toasty';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { DropdownModule } from 'primeng/primeng';
   imports: [
     DataViewModule,
     DropdownModule,
+    ToastyModule.forRoot(),
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     BrowserAnimationsModule,
@@ -38,7 +41,7 @@ import { DropdownModule } from 'primeng/primeng';
     ])
   ],
   providers: [
-  HotelService],
+  HotelService, ToastyWrapperService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

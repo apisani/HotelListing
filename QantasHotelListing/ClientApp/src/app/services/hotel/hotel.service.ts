@@ -1,9 +1,10 @@
 import { Observable } from 'rxjs/Rx';
 import { Inject, Injectable } from '@angular/core';
-
-//Models
-import { Hotel } from '../../models/hotel';
 import { HttpClient } from '@angular/common/http';
+
+// Models
+import { Hotel } from '../../../models/hotel';
+
 
 
 @Injectable()
@@ -17,8 +18,8 @@ export class HotelService {
     this.http = http;
   }
 
-  GetAllHotels(): Observable<Hotel[]>{
-    var url = this.baseUrl + 'api/Hotel/GetAllHotels';
+  GetAllHotels(): Observable<Hotel[]> {
+    const url = this.baseUrl + 'api/Hotel/GetAllHotels';
 
     return this.http.get<Hotel[]>(url);
   }

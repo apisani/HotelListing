@@ -26,6 +26,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\Images\qantas-logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ClientApp\Images\qantas-logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="ClientApp\node_modules\primeicons\fonts\primeicons.eot" />
     <Content Include="ClientApp\node_modules\primeicons\fonts\primeicons.ttf" />
     <Content Include="ClientApp\node_modules\primeicons\fonts\primeicons.woff" />
